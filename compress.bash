@@ -9,7 +9,7 @@
 # Name of the ROM. No Spaces Please.
 # Example: CyanogenMod
 # This is the source tree for XOS (Nougat) of Infinix Mobile
-name=XOS-N
+name=InfinixOS
 
 # Manifest link. https:// is mandatory.
 # Example: https://github.com/cyanogenmod/android
