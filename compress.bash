@@ -8,15 +8,15 @@
 ### Manifest Configuration ###
 # Name of the ROM. No Spaces Please.
 # Example: CyanogenMod
-name=infinixOS
+name=TWRP_81
 
 # Manifest link. https:// is mandatory.
 # Example: https://github.com/cyanogenmod/android
-manifest=https://github.com/OpenSource-Infinix/android
+manifest=https://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni/
 
 # Manifest branch.
 # Example: cm-14.0
-branch=X556N
+branch=twrp-8.1
 
 ### Finally, execute the stuff. ###
-/bin/bash skadoo.sh $name $manifest $branch
+/bin/bash ./skadoo.sh $name $manifest $branch
