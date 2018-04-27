@@ -23,42 +23,16 @@ CL_MAG="\033[35m"
 CL_CYN="\033[36m"
 CL_RST="\033[0m"
 
-# Functions
-installstuff(){
+# Necessary Application Installation
+echo "Installing necessary integrations"
+sudo apt-get update -y
+sudo apt-get install repo git bc pxz megatools -y
 
-        # Check if repo is installed
-        if [[ ! "$(which repo)" == "" ]]; then
-          echo "Installing repo for Downloading the sources"
-          sudo apt install repo
-        fi
-        
-        # Check if git is installed
-        if [[ ! "$(which git)" == "" ]]; then
-          echo "Installing git integration"
-          sudo apt-get install git -y
-        fi
-
-        # Check if user has bc, if not install it
-        if [[ ! "$(which bc)" == "" ]]; then
-          echo "Installing bc"
-          sudo apt install bc
-        fi
-
-        # Check if user has pxz, if not install it
-        if [[ ! "$(which pxz)" == "" ]]; then
-          echo "Installing pxz for multi-threaded compression"
-          sudo apt install pxz
-        fi
-
-        # Check if user has megatools, if not install it
-        if [[ ! "$(which megaput)" == "" ]]; then
-          echo "Installing megatools for uploading into mega"
-          sudo apt-get install megatools -y
-        fi
-}
+# Github Authorization
+git config --global user.email "rokibhasansagar2014@outlook.com"
+git config --global user.name "rokibhasansagar"
 
 checkstarttime(){
-
     # Check the starting time
     TIME_START=$(date +%s.%N)
 
@@ -177,9 +151,6 @@ upload(){
 doallstuff(){
     # Start the counter
     checkstarttime
-
-    # Install stuff
-    installstuff
 
     # Compress shallow
     doshallow
