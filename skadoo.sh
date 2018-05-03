@@ -73,7 +73,7 @@ doshallow(){
     mv shallow/.repo/ $ROMNAME-$BRANCH-shallow-$(date +%Y%m%d)
     cd $DIR/$ROMNAME/
     mkdir shallowparts
-    export XZ_OPT=-9e
+    export XZ_OPT=-6
     time tar -I pxz -cf - $ROMNAME-$BRANCH-shallow-$(date +%Y%m%d)/ | split -b 500M - shallowparts/$ROMNAME-$BRANCH-shallow-$(date +%Y%m%d).tar.xz.
 
     SHALLOW="shallowparts/$ROMNAME-$BRANCH-shallow-$(date +%Y%m%d).tar.xz.*"
@@ -122,6 +122,9 @@ sortshallow(){
     md5sum * > $ROMNAME-$BRANCH-shallow-$(date +%Y%m%d).parts.md5sum
 
 }
+
+echo -e $CL_RED"Compressing | Done."$CL_RST
+pause
 
 upload(){
 
