@@ -8,7 +8,7 @@
 ### Manifest Configuration ###
 # Name of the ROM. No Spaces Please.
 # Example: CyanogenMod
-name=TWRP_81
+name=Minimal_TWRP
 
 # Manifest link. https:// is mandatory.
 # Example: https://github.com/cyanogenmod/android
