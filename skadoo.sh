@@ -4,6 +4,19 @@
 # 2017
 # Modified by - Rokib Hasan Sagar @rokibhasansagar
 
+# ==================================================================
+# Must Run these 4 commands before starting build ---
+#
+# sudo apt-get update -y
+# sudo apt-get upgrade -y
+#
+# git config --global user.email "YOUR-GITHUB-USER-EMAIL-ADDRESS"
+# git config --global user.name "YOR-GITHUB-USERNAME"
+# 
+# TODO: Replace your info into the git config first and run them
+# After running these commands, you are good to go
+# ==================================================================
+
 
 # Definitions
 BRANCH=$3
@@ -26,11 +39,7 @@ CL_RST="\033[0m"
 # Necessary Application Installation
 echo "Installing necessary integrations"
 sudo apt-get update -y
-sudo apt-get install repo git bc pxz megatools -y
-
-# Github Authorization
-git config --global user.email "rokibhasansagar2014@outlook.com"
-git config --global user.name "rokibhasansagar"
+sudo apt-get install repo bc pxz megatools -y
 
 checkstarttime(){
     # Check the starting time
@@ -123,9 +132,6 @@ sortshallow(){
 
 }
 
-echo -e $CL_RED"Compressing | Done."$CL_RST
-pause
-
 upload(){
 
     echo -e $CL_XOS"Begin to upload."$CL_RST
@@ -140,11 +146,10 @@ upload(){
     # Make Directories in MEGA
     megamkdir /Root/$ROMNAME --config=$DIR/.megarc
     megamkdir /Root/$ROMNAME/$BRANCH --config=$DIR/.megarc
-    megamkdir /Root/$ROMNAME/$BRANCH/shallow --config=$DIR/.megarc
     
     # Upload
     SHALLOWUP="$ROMNAME/$BRANCH/shallow/$ROMNAME-$BRANCH-shallow-$(date +%Y%m%d).*"
-    megaput $SHALLOWUP --path=/Root/$ROMNAME/$BRANCH/shallow --config=$DIR/.megarc
+    megaput $SHALLOWUP --path=/Root/$ROMNAME/$BRANCH --config=$DIR/.megarc
 
     echo -e $CL_XOS"Done uploading."$CL_RST
 
